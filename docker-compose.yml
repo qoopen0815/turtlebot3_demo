@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  ros:
+    hostname: ros2_humble
+    network_mode: host
+    privileged: true
+    environment:
+      # Display X Server GUI.
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      # Set environment variables. It is instead of writing them in .bashrc.
+      - TURTLEBOT3_MODEL=big_wheel
+      - LDS_MODEL=LDS-01
+
+    container_name: demo
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw # DockerでGUIを使用する設定
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    tty: true

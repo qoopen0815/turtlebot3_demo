@@ -1,0 +1,28 @@
+[submodule "src/DynamixelSDK"]
+	path = src/DynamixelSDK
+	url = https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+	branch = humble-devel
+[submodule "src/turtlebot3_msgs"]
+	path = src/turtlebot3_msgs
+	url = https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+	branch = humble-devel
+[submodule "src/turtlebot3_jp_custom"]
+	path = src/turtlebot3_jp_custom
+	url = https://github.com/ROBOTIS-JAPAN-GIT/turtlebot3_jp_custom.git
+	branch = humble-jp-devel
+[submodule "src/realsense-ros_jp_custom"]
+	path = src/realsense-ros_jp_custom
+	url = https://github.com/ROBOTIS-JAPAN-GIT/realsense-ros_jp_custom.git
+	branch = humble-jp-devel
+[submodule "src/realsense_gazebo_plugin"]
+	path = src/realsense_gazebo_plugin
+	url = https://github.com/pal-robotics/realsense_gazebo_plugin.git
+	branch = foxy-devel
+[submodule "src/turtlebot3_simulations_jp_custom"]
+	path = src/turtlebot3_simulations_jp_custom
+	url = https://github.com/ROBOTIS-JAPAN-GIT/turtlebot3_simulations_jp_custom
+	branch = humble-jp-devel
+[submodule "src/lightsfm"]
+	path = src/lightsfm
+	url = https://github.com/robotics-upo/lightsfm
+	branch = master
