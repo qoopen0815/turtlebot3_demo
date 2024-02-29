@@ -1,8 +1,18 @@
 version: "3.8"
 
 services:
-  ros:
-    hostname: ros2_humble
+  dev:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        - ROS_DISTRO=humble
+    image: turtlebot3-sim
+    container_name: develop
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw # DockerでGUIを使用する設定
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    tty: true
     network_mode: host
     privileged: true
     environment:
@@ -10,14 +20,9 @@ services:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
       # Set environment variables. It is instead of writing them in .bashrc.
-      - TURTLEBOT3_MODEL=big_wheel
-      - LDS_MODEL=LDS-01
-
-    container_name: demo
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    volumes:
-      - /tmp/.X11-unix:/tmp/.X11-unix:rw # DockerでGUIを使用する設定
-      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
-    tty: true
+      - TURTLEBOT3_MODEL=waffle
+      - ROS_DOMAIN_ID=30
+  # sim:
+  #   extends: dev
+  #   container_name: tb3_sim
+  #   command: ros2 launch nav2_bringup tb3_simulation_launch.py headless:=False
