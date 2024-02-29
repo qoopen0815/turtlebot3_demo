@@ -22,7 +22,7 @@ services:
       # Set environment variables. It is instead of writing them in .bashrc.
       - TURTLEBOT3_MODEL=waffle
       - ROS_DOMAIN_ID=30
-  # sim:
-  #   extends: dev
-  #   container_name: tb3_sim
-  #   command: ros2 launch nav2_bringup tb3_simulation_launch.py headless:=False
+  sim:
+    extends: dev
+    container_name: simulator
+    command: ros2 launch nav2_bringup tb3_simulation_launch.py headless:=False
