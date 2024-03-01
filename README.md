@@ -1,6 +1,6 @@
 # Turtlebot3 デモ用Docker環境
 
-このリポジトリはTurtlebot3のデモ用Docker環境を提供します。  
+このリポジトリはTurtlebot3の公式チュートリアルに沿ってデモ用Docker環境を提供します。  
 この環境を使ってROS2とTurtlebot3を簡単に試すことができます。
 
 ## 概要
@@ -27,6 +27,9 @@ docker exec -it develop /bin/bash
 ```
   
 2. Gazebo起動
+
+turtlebot3_gazeboパッケージのGazeboシミュレーションは起動に失敗するので、nav2_bringupパッケージのlaunchファイルを使用しています。  
+[nav2 -getting_started-](https://navigation.ros.org/getting_started/index.html#getting-started)
 
 ```bash
 ros2 launch nav2_bringup tb3_simulation_launch.py headless:=False
